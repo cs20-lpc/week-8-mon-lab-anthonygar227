@@ -78,7 +78,7 @@ template <typename T>
 T ArrayStack<T>::peek() const {
     // TODO
     if (isEmpty()){
-        throw string("Cannot peek an empty stack");
+        throw string("peek: error, stack is empty, cannot access the top");
     }
     return buffer [this->length - 1];
 }
@@ -87,7 +87,7 @@ template <typename T>
 void ArrayStack<T>::pop() {
     // TODO
     if (isEmpty()){
-        throw string("Cannot pop from an empty stack");
+        throw string("pop: error, stack is empty, avoiding underflow");
     }
     this->length--;
 }
@@ -96,7 +96,7 @@ template <typename T>
 void ArrayStack<T>::push(const T& elem) {
     // TODO
     if (isFull()){
-        throw string("Cannot push to a full stack");
+        throw string("push: error, stack is full, avoiding overflow");
     }
     buffer[this->length++] = elem;
 }
